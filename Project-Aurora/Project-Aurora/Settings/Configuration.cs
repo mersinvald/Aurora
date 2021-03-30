@@ -182,11 +182,11 @@ namespace Aurora.Settings
         Logitech_GPRO = 103,
         [Description("Logitech - G213")]
         Logitech_G213 = 104,
-		[Description("Logitech - G815")]
+        [Description("Logitech - G815")]
         Logitech_G815 = 105,
         [Description("Logitech - G513")]
         Logitech_G513 = 106,
-		
+
         //Corsair range is 200-299
         [Description("Corsair - K95")]
         Corsair_K95 = 200,
@@ -259,7 +259,7 @@ namespace Aurora.Settings
         [Description("SoundBlasterX VanguardK08")]
         SoundBlasterX_Vanguard_K08 = 1100,
 
- 
+
 
         [Description("UNIWILL2ND (ANSI)")]
         Uniwill2ND_35X_1 = 2101,
@@ -285,13 +285,16 @@ namespace Aurora.Settings
         [Description("UNIWILL2P2 (JIS)")]
         Uniwill2P2_650_JP = 2110,
 
- 
+
         //Ducky range is 1200-1299
         [Description("Ducky Shine 7/One 2 RGB")]
         Ducky_Shine_7 = 1200,
         [Description("Ducky One 2 RGB TKL")]
         Ducky_One_2_RGB_TKL = 1201,
- 
+
+        // Moonlander
+        [Description("Moonlaner (Experimental)")]
+        Moonlander = 3000,
     }
 
     public enum PreferredKeyboardLocalization
@@ -336,6 +339,8 @@ namespace Aurora.Settings
         iso = 18,
         [Description("ANSI - Automatic (Experimental)")]
         ansi = 19,
+        [Description("Moonlander (Experimental)")]
+        moonlander = 20,
     }
 
     public enum PreferredMouse
@@ -594,8 +599,10 @@ namespace Aurora.Settings
         /// <summary>
         /// Called after the configuration file has been deserialized or created for the first time.
         /// </summary>
-        public void OnPostLoad() {
-            if (!unified_hid_disabled) {
+        public void OnPostLoad()
+        {
+            if (!unified_hid_disabled)
+            {
                 devices_disabled.Add(typeof(Devices.UnifiedHID.UnifiedHIDDevice));
                 unified_hid_disabled = true;
             }
@@ -632,7 +639,8 @@ namespace Aurora.Settings
 
             if (!File.Exists(configPath))
                 config = CreateDefaultConfigurationFile();
-            else {
+            else
+            {
                 string content = File.ReadAllText(configPath, Encoding.UTF8);
                 config = string.IsNullOrWhiteSpace(content)
                     ? CreateDefaultConfigurationFile()

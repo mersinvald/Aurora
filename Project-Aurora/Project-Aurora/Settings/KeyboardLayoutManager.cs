@@ -575,6 +575,9 @@ namespace Aurora.Settings
                         case PreferredKeyboardLocalization.ansi:
                             culture = "ansi";
                             break;
+                        case PreferredKeyboardLocalization.moonlander:
+                            culture = "moonlander";
+                            break;
                     }
 
                     switch (culture)
@@ -677,6 +680,10 @@ namespace Aurora.Settings
                             _loaded_localization = PreferredKeyboardLocalization.ansi;
                             LoadCulture("ansi");
                             break;
+                        case ("moonlander"):
+                            _loaded_localization = PreferredKeyboardLocalization.moonlander;
+                            LoadCulture("moonlander");
+                            break;
                         default:
                             _loaded_localization = PreferredKeyboardLocalization.intl;
                             LoadCulture("intl");
@@ -696,7 +703,7 @@ namespace Aurora.Settings
                 layoutConfigPath = Path.Combine(layoutsPath, "logitech_gpro.json");
             else if (keyboard_preference == PreferredKeyboard.Logitech_G410)
                 layoutConfigPath = Path.Combine(layoutsPath, "logitech_g410.json");
-			else if (keyboard_preference == PreferredKeyboard.Logitech_G815)
+            else if (keyboard_preference == PreferredKeyboard.Logitech_G815)
                 layoutConfigPath = Path.Combine(layoutsPath, "logitech_g815.json");
             else if (keyboard_preference == PreferredKeyboard.Logitech_G513)
                 layoutConfigPath = Path.Combine(layoutsPath, "logitech_g513.json");
@@ -760,7 +767,7 @@ namespace Aurora.Settings
                 layoutConfigPath = Path.Combine(layoutsPath, "drevo_blademaster.json");
             else if (keyboard_preference == PreferredKeyboard.Wooting_Two)
                 layoutConfigPath = Path.Combine(layoutsPath, "wooting_two.json");
- 
+
             else if (keyboard_preference == PreferredKeyboard.Uniwill2ND_35X_1)
                 layoutConfigPath = Path.Combine(layoutsPath, "Uniwill2ND_35X_1.json");
             else if (keyboard_preference == PreferredKeyboard.Uniwill2ND_35X_2)
@@ -783,12 +790,15 @@ namespace Aurora.Settings
                 layoutConfigPath = Path.Combine(layoutsPath, "Uniwill2P2_650_BR.json");
             else if (keyboard_preference == PreferredKeyboard.Uniwill2P2_650_JP)
                 layoutConfigPath = Path.Combine(layoutsPath, "Uniwill2P2_650_JP.json");
- 
+
             else if (keyboard_preference == PreferredKeyboard.Ducky_Shine_7)
                 layoutConfigPath = Path.Combine(layoutsPath, "ducky_shine_7.json");
             else if (keyboard_preference == PreferredKeyboard.Ducky_One_2_RGB_TKL)
                 layoutConfigPath = Path.Combine(layoutsPath, "ducky_one_2_rgb_tkl.json");
- 
+
+            else if (keyboard_preference == PreferredKeyboard.Moonlander)
+                layoutConfigPath = Path.Combine(layoutsPath, "moonlander.json");
+
             else
             {
                 LoadNone();
@@ -1427,7 +1437,7 @@ namespace Aurora.Settings
 
             keyboard.Add(new KeyboardKey("INSERT", Devices.DeviceKeys.INSERT, true, false, 9, 14));
             keyboard.Add(new KeyboardKey("HOME", Devices.DeviceKeys.HOME, true, false, 9));
-            keyboard.Add(new KeyboardKey("PAGE\r\nUP", Devices.DeviceKeys.HOME, true, false, 9));
+            keyboard.Add(new KeyboardKey("PAGE\r\nUP", Devices.DeviceKeys.PAGE_UP, true, false, 9));
 
             keyboard.Add(new KeyboardKey("NUM\r\nLOCK", Devices.DeviceKeys.NUM_LOCK, true, false, 9, 14));
             keyboard.Add(new KeyboardKey("/", Devices.DeviceKeys.NUM_SLASH));

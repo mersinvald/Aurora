@@ -284,11 +284,12 @@ namespace Aurora
 
         public void PushFrame(EffectFrame frame)
         {
+
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             lock (bitmap_lock)
             {
-                EffectLayer background = new EffectLayer("Global Background", Color.FromArgb(0, 0, 0));
+                EffectLayer background = new EffectLayer("Global Background", Color.Transparent);
 
                 EffectLayer[] over_layers_array = frame.GetOverlayLayers().ToArray();
                 EffectLayer[] layers_array = frame.GetLayers().ToArray();
